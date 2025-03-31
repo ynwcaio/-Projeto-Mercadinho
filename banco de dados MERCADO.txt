@@ -1,0 +1,49 @@
+DROP DATABASE IF EXISTS MERCADO;
+CREATE DATABASE MERCADO;
+USE MERCADO;
+
+CREATE TABLE PRODUTO (
+    cod_produto INT AUTO_INCREMENT NOT NULL,
+    nome_produto VARCHAR(100) NOT NULL,
+    desc_produto TEXT,
+    preco_produto DECIMAL(10, 2) NOT NULL,
+    categ_produto VARCHAR(30) NOT NULL,
+    PRIMARY KEY(cod_produto));
+
+CREATE TABLE PEDIDO (
+    codigo_pedido INT AUTO_INCREMENT NOT NULL,
+    data_pedido DATE NOT NULL,
+    nome_pedido VARCHAR(100) NOT NULL,
+    contato_pedido VARCHAR(50),
+    cpf_pedido VARCHAR(11) NOT NULL,
+    cod_produto INT NOT NULL,
+    quantidade INT NOT NULL,
+    PRIMARY KEY(codigo_pedido)
+);
+
+
+INSERT INTO PRODUTO (nome_produto, desc_produto, preco_produto, categ_produto)
+VALUES 
+('Arroz Integral 5kg', 'Arroz integral de alta qualidade, embalagem de 5kg', 18.90, 'Alimentos'),
+('Feijão Carioca 1kg', 'Feijão carioca selecionado, embalagem de 1kg', 6.50, 'Alimentos'),
+('Açúcar Cristal 5kg', 'Açúcar cristal de alta pureza, embalagem de 5kg', 12.99, 'Alimentos'),
+('Óleo de Soja 900ml', 'Óleo de soja refinado, embalagem de 900ml', 4.99, 'Alimentos'),
+('Macarrão Espaguete 500g', 'Macarrão espaguete de trigo, embalagem de 500g', 3.50, 'Alimentos'),
+('Leite UHT 1L', 'Leite UHT integral, embalagem de 1L', 3.20, 'Laticínios'),
+('Queijo Mussarela 500g', 'Queijo mussarela de vaca, embalagem de 500g', 14.90, 'Laticínios'),
+('Iogurte Natural 170g', 'Iogurte natural integral, embalagem de 170g', 2.50, 'Laticínios'),
+('Pão de Forma 500g', 'Pão de forma fresco e macio, embalagem de 500g', 5.90, 'Panificação'),
+('Biscoito de Maizena 400g', 'Biscoito de maizena crocante, embalagem de 400g', 4.30, 'Biscoitos e Snacks');
+
+INSERT INTO PEDIDO (data_pedido, nome_pedido, contato_pedido, cpf_pedido, cod_produto, quantidade)
+VALUES
+('2025-03-08', 'João Silva', '123456789', '12345678901', 1, 2),   
+('2025-03-08', 'Maria Oliveira', '987654321', '98765432100', 2, 3), 
+('2025-03-09', 'Carlos Souza', '555987654', '12398765432', 3, 1),   
+('2025-03-09', 'Ana Costa', '876543210', '56473829123', 4, 5),     
+('2025-03-10', 'Patrícia Lima', '123123123', '32345678900', 1, 3),  
+('2025-03-10', 'Felipe Pereira', '456456456', '78965412311', 2, 2), 
+('2025-03-11', 'Fernanda Silva', '678678678', '11223344556', 5, 7), 
+('2025-03-11', 'Roberto Santos', '321321321', '44332211099', 3, 4), 
+('2025-03-12', 'Luciana Costa', '789789789', '98765432100', 6, 1),  
+('2025-03-12', 'Jorge Oliveira', '234567890', '56712389012', 4, 2);  
